@@ -25,7 +25,7 @@ branches:
     - master
 env:
   global:
-    - GH_REF: github.com/ntnyq/yui-plalette.git
+    - GH_REF: github.com/ntnyq/yui-palette.git
 
 addons:
   ssh_known_hosts: 47.52.31.173
