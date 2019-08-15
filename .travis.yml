@@ -17,11 +17,7 @@ after_success:
   - git add .
   - git commit -m ":rocket:Update"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
-<<<<<<< HEAD
   - scp -r ./* ntnyq@47.52.31.173:/home/ntnyq/www/demo/palette
-=======
-  - scp -r ./* ntnyq@47.52.31.173:/home/ntnyq/web/demo/palette
->>>>>>> 5af86a2ff9fc3902950c7502adfd8620655fcc6a
 
 branches:
   only:
