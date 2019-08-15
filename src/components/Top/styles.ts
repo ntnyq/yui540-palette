@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import { pcLayout, spLayout } from '../../utils/breakpoint'
 import { fadeIn } from '../../utils/common-keyframes'
 
-export const Container = styled.div`padding-bottom: 130px;`
+export const Container = styled.div`
+  padding-bottom: 130px;
+`
 
 export const Logo = styled.img`
   display: block;
@@ -31,7 +33,7 @@ export const ColorWrapper = styled.div`
     margin-top: 5px;
   `)};
 
-  animation: ${fadeIn} 1.5s ease .3s forwards;
+  animation: ${fadeIn} 1.5s ease 0.3s forwards;
 `
 
 export const Footer = styled.footer`
@@ -108,7 +110,7 @@ export const Snc = styled.aside`
     display: block;
     text-align: center;
     color: #fbf4f1;
-    transition: .4s ease;
+    transition: 0.4s ease;
 
     ${pcLayout(`
       width: 44px;
@@ -141,7 +143,7 @@ export const Snc = styled.aside`
     color: #34a123;
   }
 
-  animation: ${fadeIn} 1.5s ease .6s forwards;
+  animation: ${fadeIn} 1.5s ease 0.6s forwards;
 `
 
 export const Modal = styled.div``

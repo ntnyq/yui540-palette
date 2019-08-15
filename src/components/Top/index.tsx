@@ -19,7 +19,7 @@ interface State {
 }
 
 export default class Top extends React.Component<Props, State> {
-  constructor (props: Props) {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -33,7 +33,7 @@ export default class Top extends React.Component<Props, State> {
     }
   }
 
-  private onMouseOver (num: number) {
+  private onMouseOver(num: number) {
     const color = colors[num]
 
     this.setState({
@@ -43,11 +43,11 @@ export default class Top extends React.Component<Props, State> {
     })
   }
 
-  private onMouseOut () {
+  private onMouseOut() {
     this.setState({ open: false })
   }
 
-  private showModal (num: number) {
+  private showModal(num: number) {
     const color = colors[num]
 
     this.setState({
@@ -59,11 +59,11 @@ export default class Top extends React.Component<Props, State> {
     })
   }
 
-  private hiddenModal () {
+  private hiddenModal() {
     this.setState({ modal: false })
   }
 
-  private prevColor () {
+  private prevColor() {
     const { num } = this.state
     const _num = num - 1 <= 0 ? colors.length - 1 : num - 1
     const color = colors[_num]
@@ -76,7 +76,7 @@ export default class Top extends React.Component<Props, State> {
     })
   }
 
-  private nextColor () {
+  private nextColor() {
     const { num } = this.state
     const _num = num + 1 === colors.length ? 0 : num + 1
     const color = colors[_num]
@@ -89,7 +89,7 @@ export default class Top extends React.Component<Props, State> {
     })
   }
 
-  public render () {
+  public render() {
     const { color, open, modal, productName, productColor, productLink } = this.state
 
     return (

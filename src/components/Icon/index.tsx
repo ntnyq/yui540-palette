@@ -8,11 +8,11 @@ interface Props {
 interface State {}
 
 export default class Icon extends React.Component<Props, State> {
-  constructor (props: Props) {
+  constructor(props: Props) {
     super(props)
   }
 
-  public render () {
+  public render() {
     let { icon } = this.props
     icon = icon ? `#icon-${icon}` : ''
 

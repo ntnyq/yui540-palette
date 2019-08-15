@@ -7,7 +7,7 @@ export const Container = styled.button`
   border: none;
   position: relative;
   height: 0;
-  transition: all .15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
   cursor: pointer;
 
   ${pcLayout(`
@@ -38,7 +38,7 @@ export const Container = styled.button`
   }
 
   &:hover div:nth-child(1):after {
-    animation: ${beat} .8s cubic-bezier(0.7, -0.02, 0.24, 0.98) .3s infinite;
+    animation: ${beat} 0.8s cubic-bezier(0.7, -0.02, 0.24, 0.98) 0.3s infinite;
     ${spLayout(`animation: none;`)};
   }
 
@@ -58,10 +58,10 @@ export const BgColor = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  transition: all .45s cubic-bezier(0, 0, 0, 1.01) 0s;
+  transition: all 0.45s cubic-bezier(0, 0, 0, 1.01) 0s;
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     height: 100%;
@@ -81,7 +81,7 @@ export const ProductName = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  transition: all .45s cubic-bezier(0, 0, 0, 1.01) 0s;
+  transition: all 0.45s cubic-bezier(0, 0, 0, 1.01) 0s;
 
   ${pcLayout(`
     font-size: 12px;
@@ -109,7 +109,7 @@ export const ColorCode = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   text-transform: uppercase;
-  transition: all .45s cubic-bezier(0, 0, 0, 1.01) 0s;
+  transition: all 0.45s cubic-bezier(0, 0, 0, 1.01) 0s;
 
   ${pcLayout(`
     font-size: 12px;

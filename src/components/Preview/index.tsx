@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default class Preview extends React.Component<Props, {}> {
-  public render () {
+  public render() {
     const { color, open } = this.props
 
     return (

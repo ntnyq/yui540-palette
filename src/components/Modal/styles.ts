@@ -14,11 +14,11 @@ export const Bg = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
   display: none;
   opacity: 0;
 
-  &[data-show=true] {
+  &[data-show='true'] {
     display: block;
     animation: ${fadeIn} 2s ease 0s forwards;
   }
@@ -33,7 +33,7 @@ export const Container = styled.div`
   perspective: 600px;
   transform: translateY(-100%);
 
-  &[data-show=true] {
+  &[data-show='true'] {
     animation: ${bound} 0.9s ease-out 0s forwards;
   }
 `
@@ -45,7 +45,7 @@ export const Inner = styled.div`
   width: 100%;
   height: 100%;
 
-  &[data-show=true] {
+  &[data-show='true'] {
     animation: ${rotate} 3s ease-out 0s forwards;
   }
 `
@@ -145,7 +145,7 @@ export const ColorContent = styled.div`
     height: 100px;
   `)};
 
-  &[data-show=true] {
+  &[data-show='true'] {
     animation: ${border} 1.4s ease-out 2.6s forwards;
   }
 `
@@ -177,10 +177,10 @@ export const ProductName = styled.div`
     color: #ccc;
   }
 
-  &[data-show=true] span:nth-child(1) {
+  &[data-show='true'] span:nth-child(1) {
     animation: ${fadeIn} 0.6s ease-in 1s forwards;
   }
-  &[data-show=true] span:nth-child(2) {
+  &[data-show='true'] span:nth-child(2) {
     animation: ${fadeIn} 0.6s ease-in 1.4s forwards;
   }
 `
@@ -216,11 +216,11 @@ export const ColorCode = styled.div`
     text-transform: uppercase;
   }
 
-  &[data-show=true] span:nth-child(1) {
+  &[data-show='true'] span:nth-child(1) {
     animation: ${fadeIn} 0.6s ease-in 1.8s forwards;
   }
 
-  &[data-show=true] span:nth-child(2) {
+  &[data-show='true'] span:nth-child(2) {
     animation: ${fadeIn} 0.6s ease-in 2.2s forwards;
   }
 `
@@ -295,7 +295,7 @@ export const PrevButton = styled.button`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
   }
@@ -330,7 +330,7 @@ export const PrevButton = styled.button`
   }
 
   /* animation */
-  &[data-show=true] {
+  &[data-show='true'] {
     animation: ${prevButtonShow} 0.3s ease-out 2.6s forwards;
   }
 `
@@ -359,7 +359,7 @@ export const NextButton = styled.button`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
   }
@@ -398,7 +398,7 @@ export const NextButton = styled.button`
     outline: none;
   }
 
-  &[data-show=true] {
+  &[data-show='true'] {
     animation: ${nextButtonShow} 0.3s ease-out 2.8s forwards;
   }
 `
@@ -451,7 +451,7 @@ export const CopyButton = styled.button`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -549,7 +549,7 @@ export const LineFront = styled.div`
     ${spLayout(`bottom: -20px;`)};
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       bottom: -4.5px;

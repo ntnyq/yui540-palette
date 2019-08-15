@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default class Color extends React.Component<Props, {}> {
-  public render () {
+  public render() {
     const { num, color, productName, onMouseOver, onMouseOut, showModal } = this.props
 
     return (

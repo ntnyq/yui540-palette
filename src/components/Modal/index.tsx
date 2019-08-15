@@ -31,7 +31,7 @@ interface Props {
 }
 
 export default class Modal extends React.Component<Props, {}> {
-  private clickCopy (colorCode: string) {
+  private clickCopy(colorCode: string) {
     const ele = document.createElement('div')
 
     ele.appendChild(document.createElement('pre')).textContent = colorCode.toLowerCase()
@@ -45,7 +45,7 @@ export default class Modal extends React.Component<Props, {}> {
     document.body.removeChild(ele)
   }
 
-  public render () {
+  public render() {
     const { modal, color, productLink, productName, hiddenModal, prevColor, nextColor } = this.props
 
     return (
