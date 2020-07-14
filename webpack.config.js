@@ -5,14 +5,14 @@ module.exports = {
 
   output: {
     path: `${__dirname}/public`,
-    filename: 'index.js'
+    filename: 'index.js',
   },
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
-      '@': `${__dirname}/src`
-    }
+      '@': `${__dirname}/src`,
+    },
   },
 
   devtool: 'source-map',
@@ -25,8 +25,8 @@ module.exports = {
         exclude: /node_modules/,
         include: `${__dirname}/src/icons`,
         options: {
-          symbolId: 'icon-[name]'
-        }
+          symbolId: 'icon-[name]',
+        },
       },
       {
         test: /\.svg$/,
@@ -34,25 +34,25 @@ module.exports = {
         exclude: `${__dirname}/src/icons`,
         options: {
           limit: 1e4,
-          name: './images/other/[name].[ext]'
-        }
+          name: './images/other/[name].[ext]',
+        },
       },
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'ts-loader',
       },
       {
         enforce: 'pre',
         test: /\*js$/,
-        loader: 'source-map-loader'
-      }
-    ]
+        loader: 'source-map-loader',
+      },
+    ],
   },
 
   devServer: {
     historyApiFallback: true,
     contentBase: `${__dirname}/public`,
     open: true,
-    port: 9527
-  }
+    port: 9527,
+  },
 }

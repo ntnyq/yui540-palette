@@ -29,7 +29,7 @@ export default class Top extends React.Component<Props, State> {
       modal: false,
       productColor: '',
       productName: '',
-      productLink: ''
+      productLink: '',
     }
   }
 
@@ -39,7 +39,7 @@ export default class Top extends React.Component<Props, State> {
     this.setState({
       num,
       color: color.color,
-      open: true
+      open: true,
     })
   }
 
@@ -55,7 +55,7 @@ export default class Top extends React.Component<Props, State> {
       modal: true,
       productColor: color.color,
       productName: color.product.name,
-      productLink: color.product.link
+      productLink: color.product.link,
     })
   }
 
@@ -72,7 +72,7 @@ export default class Top extends React.Component<Props, State> {
       num: _num,
       productColor: color.color,
       productName: color.product.name,
-      productLink: color.product.link
+      productLink: color.product.link,
     })
   }
 
@@ -85,12 +85,19 @@ export default class Top extends React.Component<Props, State> {
       num: _num,
       productColor: color.color,
       productName: color.product.name,
-      productLink: color.product.link
+      productLink: color.product.link,
     })
   }
 
   public render() {
-    const { color, open, modal, productName, productColor, productLink } = this.state
+    const {
+      color,
+      open,
+      modal,
+      productName,
+      productColor,
+      productLink,
+    } = this.state
 
     return (
       <Container>
@@ -116,18 +123,19 @@ export default class Top extends React.Component<Props, State> {
         </Footer>
         <Preview open={open} color={color} />
         <Snc>
-          <a title='Twitter' href='javascript:;' target='_blank'>
-            <Icon icon='twitter' />
-          </a>
-          <a title='Github' href='javascript:;' target='_blank'>
-            <Icon icon='github' />
-          </a>
-          <a title='Web' href='javascript:;' target='_blank'>
-            <Icon icon='globe' />
-          </a>
-          <a title='Wechat' href='javascript:;' target='_blank'>
-            <Icon icon='wechat' />
-          </a>
+          {['twitter', 'github', 'globe', 'wechat'].map(name => {
+            const [first, ...other] = name
+
+            return (
+              <a
+                title={first.toUpperCase() + other.join('')}
+                key={name}
+                href='javascript:;'
+              >
+                <Icon name={name} />
+              </a>
+            )
+          })}
         </Snc>
         <Modal
           modal={modal}

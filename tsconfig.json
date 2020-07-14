@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "outDir": "./public",
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "module": "commonjs",
-    "target": "es2015",
+    "module": "esnext",
+    "target": "esnext",
     "jsx": "react",
+    "strict": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "types": ["react"]
   },
-  "include": ["./src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
