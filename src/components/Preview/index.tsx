@@ -1,20 +1,15 @@
-import * as React from 'react'
-
-import { Container, ColorCode } from './styles'
+import React from 'react'
+import { ColorCode, Container } from './style'
 
 interface Props {
   color: string
   open: boolean
 }
 
-export default class Preview extends React.Component<Props, {}> {
-  public render() {
-    const { color, open } = this.props
+const Preview: React.FC<Props> = ({ color, open }) => (
+  <Container color={color} data-open={open}>
+    <ColorCode>{color}</ColorCode>
+  </Container>
+)
 
-    return (
-      <Container color={color} data-open={open}>
-        <ColorCode>{color}</ColorCode>
-      </Container>
-    )
-  }
-}
+export default Preview

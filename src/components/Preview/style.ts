@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { spLayout } from '../../utils/breakpoint'
+import { mediaQueries as mq } from '/@/utils/mq'
 
 export const Container = styled.div`
   position: fixed;
@@ -12,13 +12,16 @@ export const Container = styled.div`
   transform: translate3d(100%, 0, 0);
   border-radius: 70% 0 0 70%;
   overflow: hidden;
+  display: none;
+
+  ${mq.desktop`
+    display: block;
+  `}
 
   &[data-open='true'] {
     transform: translate3d(0, 0, 0);
     border-radius: 0% 0 0 0%;
   }
-
-  ${spLayout(`display: none;`)};
 `
 
 export const ColorCode = styled.h2`

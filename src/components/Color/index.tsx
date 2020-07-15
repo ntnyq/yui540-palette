@@ -1,31 +1,33 @@
-import * as React from 'react'
-import { Container, BgColor, ProductName, ColorCode } from './styles'
+import React from 'react'
+import { Container, BgColor, ProductName, ColorCode } from './style'
 
 interface Props {
-  num: number
   color: string
   productName: string
-  onMouseOver(num: number): void
+  onMouseOver(): void
   onMouseOut(): void
-  showModal(num: number): void
+  showModal(): void
 }
 
-export default class Color extends React.Component<Props, {}> {
-  public render() {
-    const { num, color, productName, onMouseOver, onMouseOut, showModal } = this.props
+const Color: React.FC<Props> = ({
+  color,
+  productName,
+  onMouseOver,
+  onMouseOut,
+  showModal,
+}) => (
+  <Container
+    color={color}
+    onMouseOver={() => onMouseOver()}
+    onMouseOut={() => onMouseOut()}
+    onClick={() => showModal()}
+    type='button'
+    role='button'
+  >
+    <BgColor color={color} />
+    <ProductName>{productName}</ProductName>
+    <ColorCode>{color}</ColorCode>
+  </Container>
+)
 
-    return (
-      <Container
-        color={color}
-        onMouseOver={() => onMouseOver(num)}
-        onMouseOut={() => onMouseOut()}
-        onClick={() => showModal(num)}
-        type='button'
-      >
-        <BgColor color={color} />
-        <ProductName>{productName}</ProductName>
-        <ColorCode>{color}</ColorCode>
-      </Container>
-    )
-  }
-}
+export default Color

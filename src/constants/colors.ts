@@ -6,7 +6,7 @@ interface ColorItem {
   }
 }
 
-const colorList: ColorItem[] = [
+export const colorList: ColorItem[] = [
   {
     color: '#F2C047',
     product: {
@@ -421,5 +421,3 @@ const colorList: ColorItem[] = [
     },
   },
 ]
-
-export default colorList
