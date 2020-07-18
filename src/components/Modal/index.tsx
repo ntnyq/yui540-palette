@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import { copy2Clipboard } from '/@/utils'
 import {
   Bg,
   Container,
@@ -17,83 +18,71 @@ import {
   CopyButton,
   PrevButton,
   NextButton,
-  Footer
-} from './styles'
+  Footer,
+} from './style'
 
 interface Props {
   modal: boolean
-  color: string
-  productName: string
-  productLink: string
-  hiddenModal(): void
-  prevColor(): void
-  nextColor(): void
+  activeProduct: Product
+  hideModal(): void
+  prevProduct(): void
+  nextProduct(): void
 }
 
-export default class Modal extends React.Component<Props, {}> {
-  private clickCopy(colorCode: string) {
-    const ele = document.createElement('div')
-
-    ele.appendChild(document.createElement('pre')).textContent = colorCode.toLowerCase()
-    ele.style.position = 'fixed'
-    ele.style.bottom = '-100%'
-
-    document.body.appendChild(ele)
-    document.getSelection()!.selectAllChildren(ele)
-    document.execCommand('copy')
-
-    document.body.removeChild(ele)
-  }
-
-  public render() {
-    const { modal, color, productLink, productName, hiddenModal, prevColor, nextColor } = this.props
-
-    return (
-      <div>
-        <Bg data-show={modal} />
-        <Container data-show={modal}>
-          <Inner data-show={modal}>
-            <Close onClick={() => hiddenModal()} />
-            <LineBack>
-              <div />
-              <div />
-            </LineBack>
-            <Panel>
-              <Header>
-                <Title
-                  onDoubleClick={() => {
-                    window.location.href = productLink
-                  }}
-                >
-                  {productName}
-                </Title>
-              </Header>
-              <Body>
-                <ColorContent>
-                  <ProductName>
-                    <span>Product:</span>
-                    <span>{productName}</span>
-                  </ProductName>
-                  <ColorCode>
-                    <span>ColorCode:</span>
-                    <span>{color}</span>
-                  </ColorCode>
-                  <ColorLine data-show={modal} color={color} />
-                </ColorContent>
-                <PrevButton onClick={() => prevColor()} data-show={modal} />
-                <NextButton onClick={() => nextColor()} data-show={modal} />
-              </Body>
-              <Footer>
-                <CopyButton onClick={() => this.clickCopy(color)} />
-              </Footer>
-            </Panel>
-            <LineFront>
-              <div />
-              <div />
-            </LineFront>
-          </Inner>
-        </Container>
-      </div>
-    )
-  }
+const Modal: React.FC<Props> = ({
+  modal,
+  activeProduct,
+  hideModal,
+  prevProduct,
+  nextProduct,
+}) => {
+  return (
+    <div>
+      <Bg data-show={modal} />
+      <Container data-show={modal}>
+        <Inner data-show={modal}>
+          <Close onClick={() => hideModal()} />
+          <LineBack>
+            <div />
+            <div />
+          </LineBack>
+          <Panel>
+            <Header>
+              <Title
+                onDoubleClick={() => {
+                  window.location.href = activeProduct.link
+                }}
+              >
+                {activeProduct.name}
+              </Title>
+            </Header>
+            <Body>
+              <ColorContent data-show={modal}>
+                <ProductName data-show={modal}>
+                  <span>Product:</span>
+                  <span>{activeProduct.name}</span>
+                </ProductName>
+                <ColorCode data-show={modal}>
+                  <span>ColorCode:</span>
+                  <span>{activeProduct.color}</span>
+                </ColorCode>
+                <ColorLine color={activeProduct.color} data-show={modal} />
+              </ColorContent>
+              <PrevButton onClick={() => prevProduct()} data-show={modal} />
+              <NextButton onClick={() => nextProduct()} data-show={modal} />
+            </Body>
+            <Footer>
+              <CopyButton onClick={() => copy2Clipboard(activeProduct.color)} />
+            </Footer>
+          </Panel>
+          <LineFront>
+            <div />
+            <div />
+          </LineFront>
+        </Inner>
+      </Container>
+    </div>
+  )
 }
+
+export default Modal

@@ -1,7 +1,13 @@
 import styled from 'styled-components'
-import { fadeIn, slideRight } from '../../utils/common-keyframes'
-import { bound, rotate, border, prevButtonShow, nextButtonShow } from './keyframes'
-import { pcLayout, spLayout } from '../../utils/breakpoint'
+import { fadeIn, slideRight } from '/@/utils/keyframes'
+import {
+  bound,
+  rotate,
+  border,
+  prevButtonShow,
+  nextButtonShow,
+} from './keyframes'
+import { mediaQueries as mq } from '/@/utils/mq'
 
 const color1 = '#fbf4f1'
 const color2 = '#5d3523'
@@ -63,18 +69,15 @@ export const Panel = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 320px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 600px;
     box-shadow: 0 0 20px rgba(0, 0, 0, .2);
     border-radius: 12px;
-  `)};
-
-  ${spLayout(`
-    width: 320px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    border-radius: 10px;
-  `)};
+  `}
 `
 
 export const Header = styled.div`
@@ -82,18 +85,15 @@ export const Header = styled.div`
   background-color: ${color1};
   border-bottom: 1px solid ${color2};
   box-sizing: border-box;
+  height: 40px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     height: 50px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-  `)};
-
-  ${spLayout(`
-    height: 40px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  `)};
+  `}
 `
 
 export const Title = styled.div`
@@ -104,27 +104,26 @@ export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 16px;
+  line-height: 40px;
+  width: 80%;
 
-  ${pcLayout(`
+  ${mq.desktop`
     font-size: 20px;
     line-height: 50px;
     width: 85%;
-  `)};
-
-  ${spLayout(`
-    font-size: 16px;
-    line-height: 40px;
-    width: 80%;
-  `)};
+  `}
 `
 
 export const Body = styled.div`
   position: relative;
   width: 100%;
   background-color: #fff;
+  height: 180px;
 
-  ${pcLayout(`height: 260px;`)};
-  ${spLayout(`height: 180px;`)};
+  ${mq.desktop`
+    height: 260px;
+  `}
 `
 
 export const ColorContent = styled.div`
@@ -134,16 +133,13 @@ export const ColorContent = styled.div`
   border: solid 1px transparent;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  width: 280px;
+  height: 100px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 500px;
     height: 160px;
-  `)};
-
-  ${spLayout(`
-    width: 280px;
-    height: 100px;
-  `)};
+  `}
 
   &[data-show='true'] {
     animation: ${border} 1.4s ease-out 2.6s forwards;
@@ -154,20 +150,17 @@ export const ProductName = styled.div`
   position: absolute;
   color: ${color2};
   background-color: #fff;
+  top: -9px;
+  left: -4px;
+  padding: 2.5px;
+  font-size: 10px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     top: -18px;
     left: -8px;
     padding: 5px;
     font-size: 14px;
-  `)};
-
-  ${spLayout(`
-    top: -9px;
-    left: -4px;
-    padding: 2.5px;
-    font-size: 10px;
-  `)};
+  `}
 
   span {
     opacity: 0;
@@ -177,11 +170,14 @@ export const ProductName = styled.div`
     color: #ccc;
   }
 
-  &[data-show='true'] span:nth-child(1) {
-    animation: ${fadeIn} 0.6s ease-in 1s forwards;
-  }
-  &[data-show='true'] span:nth-child(2) {
-    animation: ${fadeIn} 0.6s ease-in 1.4s forwards;
+  &[data-show='true'] {
+    span:nth-child(1) {
+      animation: ${fadeIn} 0.6s ease-in 1s forwards;
+    }
+
+    span:nth-child(2) {
+      animation: ${fadeIn} 0.6s ease-in 1.4s forwards;
+    }
   }
 `
 
@@ -189,20 +185,17 @@ export const ColorCode = styled.div`
   position: absolute;
   color: ${color2};
   background-color: #fff;
+  bottom: -9px;
+  right: -4px;
+  padding: 2.5px;
+  font-size: 10px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     bottom: -18px;
     right: -8px;
     padding: 5px;
     font-size: 14px;
-  `)};
-
-  ${spLayout(`
-    bottom: -9px;
-    right: -4px;
-    padding: 2.5px;
-    font-size: 10px;
-  `)};
+  `}
 
   span {
     opacity: 0;
@@ -216,12 +209,14 @@ export const ColorCode = styled.div`
     text-transform: uppercase;
   }
 
-  &[data-show='true'] span:nth-child(1) {
-    animation: ${fadeIn} 0.6s ease-in 1.8s forwards;
-  }
+  &[data-show='true'] {
+    span:nth-child(1) {
+      animation: ${fadeIn} 0.6s ease-in 1.8s forwards;
+    }
 
-  &[data-show='true'] span:nth-child(2) {
-    animation: ${fadeIn} 0.6s ease-in 2.2s forwards;
+    span:nth-child(2) {
+      animation: ${fadeIn} 0.6s ease-in 2.2s forwards;
+    }
   }
 `
 
@@ -255,20 +250,18 @@ export const ColorLine = styled.div`
     color: rgba(255,255,255,.2);
     letter-spacing: .2em;
     text-transform: uppercase;
+    font-size: 30px;
+    line-height: 74px;
 
-    ${pcLayout(`
+    ${mq.desktop`
       font-size: 60px;
       line-height: 134px;
-    `)};
-
-    ${spLayout(`
-      font-size: 30px;
-      line-height: 74px;
-    `)};
+    `}
   }
-
   /* animation */
-  &[data-show=true]:before { animation: ${slideRight} .8s cubic-bezier(0.86,-0.02, 0.08, 1.02) .8s forwards; }
+  &[data-show=true]:before {
+    animation: ${slideRight} .8s cubic-bezier(0.86,-0.02, 0.08, 1.02) .8s forwards;
+  }
 `
 
 export const PrevButton = styled.button`
@@ -277,21 +270,18 @@ export const PrevButton = styled.button`
   position: absolute;
   top: 50%;
   left: 0;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: ${color1};
   border: solid 1px ${color2};
   transform: translate(-50%, -50%) scale(0);
   cursor: pointer;
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 65px;
     height: 65px;
-  `)};
-
-  ${spLayout(`
-    width: 40px;
-    height: 40px;
-  `)};
+  `}
 
   &:before,
   &:after {
@@ -319,12 +309,19 @@ export const PrevButton = styled.button`
     transform: translate(-25%, -50%) rotate(-45deg);
     transition: all 0.5s cubic-bezier(0.86, -0.02, 0.08, 1.02) 0s;
   }
+
   &:hover:before {
-    ${pcLayout(`transform: scale(1);`)};
+    ${mq.desktop`
+      transform: scale(1);
+    `}
   }
+
   &:hover:after {
-    ${pcLayout(`border-color: #fff;`)};
+    ${mq.desktop`
+      border-color: #fff;
+    `}
   }
+
   &:focus {
     outline: none;
   }
@@ -341,21 +338,18 @@ export const NextButton = styled.button`
   position: absolute;
   top: 50%;
   right: 0;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: ${color1};
   border: solid 1px ${color2};
   transform: translate(50%, -50%) scale(0);
   cursor: pointer;
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 65px;
     height: 65px;
-  `)};
-
-  ${spLayout(`
-    width: 40px;
-    height: 40px;
-  `)};
+  `}
 
   &:before,
   &:after {
@@ -363,7 +357,6 @@ export const NextButton = styled.button`
     display: block;
     position: absolute;
   }
-
   &:before {
     top: 0;
     left: 0;
@@ -374,7 +367,6 @@ export const NextButton = styled.button`
     transform: scale(0);
     transition: all 0.5s cubic-bezier(0.86, -0.02, 0.08, 1.02) 0s;
   }
-
   &:after {
     top: 50%;
     left: 50%;
@@ -387,17 +379,20 @@ export const NextButton = styled.button`
   }
 
   &:hover:before {
-    ${pcLayout(`transform: scale(1);`)};
+    ${mq.desktop`
+      transform: scale(1);
+    `}
   }
 
   &:hover:after {
-    ${pcLayout(`border-color: #fff;`)};
+    ${mq.desktop`
+      border-color: #fff;
+    `}
   }
 
   &:focus {
     outline: none;
   }
-
   &[data-show='true'] {
     animation: ${nextButtonShow} 0.3s ease-out 2.8s forwards;
   }
@@ -409,18 +404,15 @@ export const Footer = styled.div`
   background-color: ${color1};
   border-top: solid 1px ${color2};
   box-sizing: border-box;
+  height: 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     height: 50px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-  `)};
-
-  ${spLayout(`
-    height: 40px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  `)};
+  `}
 `
 
 export const CopyButton = styled.button`
@@ -434,20 +426,17 @@ export const CopyButton = styled.button`
   cursor: pointer;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.86, -0.02, 0.08, 1.02) 0s;
+  width: 140px;
+  height: 40px;
+  box-shadow: 0 0 5px #c2617e;
+  border-radius: 20px;
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 200px;
     height: 50px;
     box-shadow: 0 0 10px #c2617e;
     border-radius: 30px;
-  `)};
-
-  ${spLayout(`
-    width: 140px;
-    height: 40px;
-    box-shadow: 0 0 5px #c2617e;
-    border-radius: 20px;
-  `)};
+  `}
 
   &:before,
   &:after {
@@ -469,24 +458,25 @@ export const CopyButton = styled.button`
     content: 'COPY';
     color: #fff;
     letter-spacing: 0.2em;
+    font-size: 16px;
+    line-height: 40px;
 
-    ${pcLayout(`
+    ${mq.desktop`
       font-size: 20px;
       line-height: 50px;
-    `)};
-
-    ${spLayout(`
-      font-size: 16px;
-      line-height: 40px;
-    `)};
+    `}
   }
 
   &:hover:before {
-    ${pcLayout(`transform: translateX(0);`)};
+    ${mq.desktop`
+      transform: translateX(0);
+    `}
   }
 
   &:hover {
-    ${pcLayout(`box-shadow: 0 0 10px #4aa9a4;`)};
+    ${mq.desktop`
+      box-shadow: 0 0 10px #4aa9a4;
+    `}
   }
 
   &:focus {
@@ -499,16 +489,13 @@ export const LineBack = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 320px;
+  height: calc(50% - 130px);
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 600px;
     height: calc(50% - 180px);
-  `)};
-
-  ${spLayout(`
-    width: 320px;
-    height: calc(50% - 130px);
-  `)};
+  `}
 
   div {
     position: absolute;
@@ -517,9 +504,11 @@ export const LineBack = styled.div`
     height: 150%;
     background-color: ${color2};
   }
+
   div:nth-child(1) {
     left: 55px;
   }
+
   div:nth-child(2) {
     right: 55px;
   }
@@ -532,21 +521,24 @@ export const LineFront = styled.div`
   width: 600px;
   height: calc(50% - 130px);
   transform: translateX(-50%);
+  width: 320px;
+  height: calc(50% - 130px);
 
-  ${pcLayout(`
+  ${mq.desktop`
     width: 600px;
     height: calc(50% - 180px);
-  `)} ${spLayout(`
-    width: 320px;
-    height: calc(50% - 130px);
-  `)} div {
+  `}
+
+  div {
     position: absolute;
     width: 2px;
     height: 150%;
     background-color: ${color2};
+    bottom: -20px;
 
-    ${pcLayout(`bottom: -25px;`)};
-    ${spLayout(`bottom: -20px;`)};
+    ${mq.desktop`
+      bottom: -25px;
+    `}
 
     &:after {
       content: '';
@@ -560,9 +552,11 @@ export const LineFront = styled.div`
       border-radius: 50%;
     }
   }
+
   div:nth-child(1) {
     left: 25px;
   }
+
   div:nth-child(2) {
     right: 25px;
   }
