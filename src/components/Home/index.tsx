@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Sns, SnsItem, Logo, Footer, Container, ColorWrapper } from './style'
 import { Color, Preview, Modal } from '/@/components'
-import { colorList } from '/@/constants/colors'
+import { products } from '/@/constants/colors'
 import { snsList } from '/@/constants/sns'
 import logo from '/@/assets/logo.svg'
 
@@ -9,8 +9,11 @@ const Home: React.FC = () => {
   const [open, setOpen] = useState(false)
   const [color, setColor] = useState('')
 
+  const [modal, setModal] = useState(false)
+  const [activeProductIdx, setActiveProductIdx] = useState(0)
+
   const onMouseOver = (idx: number) => {
-    setColor(colorList[idx].color)
+    setColor(products[idx].color)
     setOpen(true)
   }
 
@@ -18,24 +21,45 @@ const Home: React.FC = () => {
     setOpen(false)
   }
 
-  const showModal = (idx: number) => {}
+  const showModal = (idx: number) => {
+    setActiveProductIdx(idx)
+    setModal(true)
+  }
+
+  const hideModal = () => {
+    setModal(false)
+  }
+
+  const prevProduct = () => {
+    const newIdx =
+      activeProductIdx - 1 <= 0 ? products.length - 1 : activeProductIdx - 1
+
+    setActiveProductIdx(newIdx)
+  }
+
+  const nextProduct = () => {
+    const newIdx =
+      activeProductIdx + 1 === products.length ? 0 : activeProductIdx + 1
+
+    setActiveProductIdx(newIdx)
+  }
 
   const goSnsLink = (link: string) => {
     if (!link) return
     if (link === 'javascript:;') return
 
-    window.open(link)
+    window.open(link, '_blank')
   }
 
   return (
     <Container>
       <Logo src={logo} alt='ロゴ' />
       <ColorWrapper>
-        {colorList.map((item, idx) => (
+        {products.map((item, idx) => (
           <Color
             key={idx}
             color={item.color}
-            productName={item.product.name}
+            productName={item.name}
             onMouseOver={() => onMouseOver(idx)}
             onMouseOut={() => onMouseOut()}
             showModal={() => showModal(idx)}
@@ -59,6 +83,13 @@ const Home: React.FC = () => {
           />
         ))}
       </Sns>
+      <Modal
+        modal={modal}
+        activeProduct={products[activeProductIdx]}
+        hideModal={hideModal}
+        prevProduct={prevProduct}
+        nextProduct={nextProduct}
+      />
     </Container>
   )
 }

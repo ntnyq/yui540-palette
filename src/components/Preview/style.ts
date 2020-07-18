@@ -28,9 +28,10 @@ export const ColorCode = styled.h2`
   position: absolute;
   top: 50%;
   left: 50%;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
   font-size: 20px;
   color: rgba(255, 255, 255 0.6);
-  text-align: center;
-  text-transform: uppercase;
   transform: translate(-50%, -50%);
 `
