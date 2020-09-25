@@ -3,8 +3,6 @@ import * as reactPlugin from 'vite-plugin-react'
 import type { UserConfig } from 'vite'
 
 const config: UserConfig = {
-  base: '/yui540-palette/',
-
   assetsDir: 'static',
 
   alias: {

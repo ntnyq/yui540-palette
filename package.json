@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build --base=/yui540-palette/",
+    "build:local": "tsc && vite build"
   },
   "license": "MIT",
   "husky": {
