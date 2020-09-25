@@ -14,6 +14,10 @@ const config: UserConfig = {
   jsx: 'react',
 
   plugins: [reactPlugin],
+
+  optimizeDeps: {
+    include: ['styled-components'],
+  },
 }
 
 export default config

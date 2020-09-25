@@ -14,23 +14,23 @@
   "lint-staged": {
     "*.{ts,tsx,js,md,yml}": "prettier --write"
   },
-  "prettier": "prettier-config-goy",
+  "prettier": "@ntnyq/prettier-config",
   "dependencies": {
     "@pika/react": "^16.13.1",
     "@pika/react-dom": "^16.13.1",
-    "styled-components": "^5.1.1",
-    "styled-reset": "^4.2.1"
+    "styled-components": "^5.2.0",
+    "styled-reset": "^4.2.3"
   },
   "devDependencies": {
-    "@types/react": "^16.9.35",
+    "@ntnyq/prettier-config": "^0.1.0",
+    "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.1",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
-    "prettier-config-goy": "^1.1.0",
-    "typescript": "^3.9.3",
-    "vite": "^1.0.0-rc.1",
+    "@types/styled-components": "^5.1.3",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3",
+    "vite": "^1.0.0-rc.4",
     "vite-plugin-react": "^3.0.2"
   }
 }
