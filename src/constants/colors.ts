@@ -1,4 +1,4 @@
-export const products: Product[] = [
+export const products: IProduct[] = [
   {
     color: '#F2C047',
     name: 'ヒトリゴト',

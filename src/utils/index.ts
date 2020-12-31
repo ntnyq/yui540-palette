@@ -2,6 +2,7 @@
  * Copy text to clipboard
  * @param colorCode text to copy
  */
+
 export function copy2Clipboard(colorCode: string): void {
   if (!colorCode) return
 

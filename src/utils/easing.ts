@@ -1,6 +1,7 @@
 /**
  * ease-in
  */
+
 export const easeInSine: string = 'cubic-bezier(0.47, 0, 0.745, 0.715)'
 
 export const easeInCubic: string = 'cubic-bezier(0.55, 0.055, 0.675, 0.19)'
