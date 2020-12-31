@@ -23,7 +23,7 @@ import {
 
 interface Props {
   modal: boolean
-  activeProduct: Product
+  activeProduct: IProduct
   hideModal(): void
   prevProduct(): void
   nextProduct(): void
