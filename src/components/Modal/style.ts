@@ -230,7 +230,7 @@ export const ColorLine = styled.div`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -245,10 +245,10 @@ export const ColorLine = styled.div`
   }
 
   &:after {
-    content: "${props => props.color}";
+    content: '${props => props.color}';
     text-align: center;
-    color: rgba(255,255,255,.2);
-    letter-spacing: .2em;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     font-size: 30px;
     line-height: 74px;
@@ -259,8 +259,9 @@ export const ColorLine = styled.div`
     `}
   }
   /* animation */
-  &[data-show=true]:before {
-    animation: ${slideRight} .8s cubic-bezier(0.86,-0.02, 0.08, 1.02) .8s forwards;
+  &[data-show='true']:before {
+    animation: ${slideRight} 0.8s cubic-bezier(0.86, -0.02, 0.08, 1.02) 0.8s
+      forwards;
   }
 `
 
