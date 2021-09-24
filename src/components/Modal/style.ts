@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fadeIn, slideRight } from '/@/utils/keyframes'
+import { fadeIn, slideRight } from '@/utils/keyframes'
 import {
   bound,
   rotate,
@@ -7,7 +7,7 @@ import {
   prevButtonShow,
   nextButtonShow,
 } from './keyframes'
-import { mediaQueries as mq } from '/@/utils/mq'
+import { mediaQueries as mq } from '@/utils/mq'
 
 const color1 = '#fbf4f1'
 const color2 = '#5d3523'

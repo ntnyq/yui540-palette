@@ -15,12 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
+      - uses: actions/setup-node@v2
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
-
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

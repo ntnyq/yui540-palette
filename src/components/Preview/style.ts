@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mediaQueries as mq } from '/@/utils/mq'
+import { mediaQueries as mq } from '@/utils/mq'
 
 export const Container = styled.div`
   position: fixed;

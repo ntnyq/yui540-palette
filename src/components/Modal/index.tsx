@@ -1,5 +1,5 @@
 import React from 'react'
-import { copy2Clipboard } from '/@/utils'
+import { copy2Clipboard } from '@/utils'
 import {
   Bg,
   Container,

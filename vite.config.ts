@@ -1,9 +1,11 @@
 import path from 'path'
-import type { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
 
-const config: UserConfig = {
-  alias: {
-    '/@': path.resolve(__dirname, 'src'),
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 
   optimizeDeps: {
@@ -13,6 +15,4 @@ const config: UserConfig = {
   build: {
     assetsDir: 'static',
   },
-}
-
-export default config
+})
