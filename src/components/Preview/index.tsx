@@ -7,7 +7,10 @@ interface Props {
 }
 
 const Preview: React.FC<Props> = ({ color, open }) => (
-  <Container color={color} data-open={open}>
+  <Container
+    color={color}
+    data-open={open}
+  >
     <ColorCode>{color}</ColorCode>
   </Container>
 )

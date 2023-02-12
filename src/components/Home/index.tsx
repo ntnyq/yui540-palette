@@ -31,15 +31,13 @@ const Home: React.FC = () => {
   }
 
   const prevProduct = () => {
-    const newIdx =
-      activeProductIdx - 1 <= 0 ? products.length - 1 : activeProductIdx - 1
+    const newIdx = activeProductIdx - 1 <= 0 ? products.length - 1 : activeProductIdx - 1
 
     setActiveProductIdx(newIdx)
   }
 
   const nextProduct = () => {
-    const newIdx =
-      activeProductIdx + 1 === products.length ? 0 : activeProductIdx + 1
+    const newIdx = activeProductIdx + 1 === products.length ? 0 : activeProductIdx + 1
 
     setActiveProductIdx(newIdx)
   }
@@ -53,7 +51,10 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <Logo src={logo} alt='ロゴ' />
+      <Logo
+        src={logo}
+        alt='ロゴ'
+      />
       <ColorWrapper>
         {products.map((item, idx) => (
           <Color
@@ -72,7 +73,10 @@ const Home: React.FC = () => {
         <div />
         <div />
       </Footer>
-      <Preview open={open} color={color} />
+      <Preview
+        open={open}
+        color={color}
+      />
       <Sns>
         {snsList.map(sns => (
           <SnsItem

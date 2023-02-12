@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -6,6 +6,11 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
+  },
+
+  server: {
+    open: true,
+    host: true,
   },
 
   optimizeDeps: {

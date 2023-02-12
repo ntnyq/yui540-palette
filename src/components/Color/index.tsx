@@ -9,13 +9,7 @@ interface Props {
   showModal(): void
 }
 
-const Color: React.FC<Props> = ({
-  color,
-  productName,
-  onMouseOver,
-  onMouseOut,
-  showModal,
-}) => (
+const Color: React.FC<Props> = ({ color, productName, onMouseOver, onMouseOut, showModal }) => (
   <Container
     color={color}
     onMouseOver={() => onMouseOver()}

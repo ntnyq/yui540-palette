@@ -29,13 +29,7 @@ interface Props {
   nextProduct(): void
 }
 
-const Modal: React.FC<Props> = ({
-  modal,
-  activeProduct,
-  hideModal,
-  prevProduct,
-  nextProduct,
-}) => {
+const Modal: React.FC<Props> = ({ modal, activeProduct, hideModal, prevProduct, nextProduct }) => {
   return (
     <div>
       <Bg data-show={modal} />
@@ -66,10 +60,19 @@ const Modal: React.FC<Props> = ({
                   <span>ColorCode:</span>
                   <span>{activeProduct.color}</span>
                 </ColorCode>
-                <ColorLine color={activeProduct.color} data-show={modal} />
+                <ColorLine
+                  color={activeProduct.color}
+                  data-show={modal}
+                />
               </ColorContent>
-              <PrevButton onClick={() => prevProduct()} data-show={modal} />
-              <NextButton onClick={() => nextProduct()} data-show={modal} />
+              <PrevButton
+                onClick={() => prevProduct()}
+                data-show={modal}
+              />
+              <NextButton
+                onClick={() => nextProduct()}
+                data-show={modal}
+              />
             </Body>
             <Footer>
               <CopyButton onClick={() => copy2Clipboard(activeProduct.color)} />

@@ -3,7 +3,7 @@
  * @param colorCode text to copy
  */
 
-export function copy2Clipboard(colorCode: string): void {
+export async function copy2Clipboard(colorCode: string) {
   if (!colorCode) return
 
   if (!navigator.clipboard) {
@@ -19,10 +19,10 @@ export function copy2Clipboard(colorCode: string): void {
     ele.select()
 
     try {
-      const isSuccessful = document.execCommand('copy')
-      const msg = isSuccessful ? 'successful' : 'unsuccessful'
-
-      console.log(`Fallback: Copying text command was ${msg}`)
+      const hasSuccess = document.execCommand('copy')
+      console.log(
+        `Fallback: Copying text command was ${hasSuccess ? 'successful' : 'unsuccessful'}`,
+      )
     } catch (err) {
       console.error(`Fallback: Oops, unable to copy`, err)
     } finally {
@@ -32,12 +32,10 @@ export function copy2Clipboard(colorCode: string): void {
     return
   }
 
-  navigator.clipboard.writeText(colorCode).then(
-    () => {
-      console.log(`Async: copy to clipboard was successful!`)
-    },
-    err => {
-      console.error(`Async: Could not copy text:`, err)
-    }
-  )
+  try {
+    await navigator.clipboard.writeText(colorCode)
+    console.log(`Async: copy to clipboard was successful!`)
+  } catch (error) {
+    console.error(`Async: Could not copy text:`, error)
+  }
 }
