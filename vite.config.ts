@@ -1,6 +1,7 @@
 import path from 'node:path'
-import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import million from 'million/compiler'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   resolve: {
@@ -14,7 +15,7 @@ export default defineConfig({
     host: true,
   },
 
-  plugins: [react()],
+  plugins: [react(), million.vite({ auto: true, mute: true })],
 
   optimizeDeps: {
     include: ['styled-components'],
