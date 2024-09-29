@@ -1,27 +1,21 @@
-import path from 'node:path'
-import { defineConfig } from 'vite'
-import million from 'million/compiler'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import { resolve } from './scripts/utils'
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': resolve('src'),
     },
   },
 
   server: {
     open: true,
-    host: true,
   },
 
-  plugins: [react(), million.vite({ auto: true, mute: true })],
+  plugins: [react()],
 
   optimizeDeps: {
     include: ['styled-components'],
-  },
-
-  build: {
-    assetsDir: 'static',
   },
 })

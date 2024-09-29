@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
-import { bgColor, selectionColor } from '@/constants/theme'
 import bgImage from '@/assets/bg.png'
+import { bgColor, selectionColor } from '@/constants/theme'
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
