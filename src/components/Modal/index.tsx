@@ -2,23 +2,23 @@ import React from 'react'
 import { copy2Clipboard } from '@/utils'
 import {
   Bg,
-  Container,
-  Inner,
+  Body,
   Close,
+  ColorCode,
+  ColorContent,
+  ColorLine,
+  Container,
+  CopyButton,
+  Footer,
+  Header,
+  Inner,
   LineBack,
   LineFront,
-  Header,
-  Body,
-  Title,
-  Panel,
-  ProductName,
-  ColorContent,
-  ColorCode,
-  ColorLine,
-  CopyButton,
-  PrevButton,
   NextButton,
-  Footer,
+  Panel,
+  PrevButton,
+  ProductName,
+  Title,
 } from './style'
 
 interface Props {
@@ -29,7 +29,13 @@ interface Props {
   nextProduct(): void
 }
 
-const Modal: React.FC<Props> = ({ modal, activeProduct, hideModal, prevProduct, nextProduct }) => {
+const Modal: React.FC<Props> = ({
+  modal,
+  activeProduct,
+  hideModal,
+  prevProduct,
+  nextProduct,
+}) => {
   return (
     <div>
       <Bg data-show={modal} />

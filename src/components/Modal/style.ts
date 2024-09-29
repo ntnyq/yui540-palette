@@ -1,18 +1,16 @@
 import styled from 'styled-components'
 import { fadeIn, slideRight } from '@/utils/keyframes'
-import {
-  bound,
-  rotate,
-  border,
-  prevButtonShow,
-  nextButtonShow,
-} from './keyframes'
 import { mediaQueries as mq } from '@/utils/mq'
+import {
+  border,
+  bound,
+  nextButtonShow,
+  prevButtonShow,
+  rotate,
+} from './keyframes'
 
 const color1 = '#fbf4f1'
 const color2 = '#5d3523'
-const color3 = '#ccc'
-const color4 = '#c2617e'
 
 export const Bg = styled.div`
   position: fixed;

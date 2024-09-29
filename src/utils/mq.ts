@@ -1,5 +1,6 @@
-import { css, CSSProp } from 'styled-components'
+import { css } from 'styled-components'
 import { desktopSize } from '@/constants/theme'
+import type { CSSProp } from 'styled-components'
 
 export const mediaQueryBuilder =
   (size: number) =>

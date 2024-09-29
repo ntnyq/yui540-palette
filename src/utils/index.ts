@@ -1,10 +1,12 @@
 /**
  * Copy text to clipboard
- * @param colorCode text to copy
+ * @param colorCode - text to copy
  */
 
 export async function copy2Clipboard(colorCode: string) {
-  if (!colorCode) return
+  if (!colorCode) {
+    return
+  }
 
   if (!navigator.clipboard) {
     const ele = document.createElement('textarea')
@@ -14,7 +16,7 @@ export async function copy2Clipboard(colorCode: string) {
     ele.style.left = '0'
     ele.style.position = 'fixed'
 
-    document.body.appendChild(ele)
+    document.body.append(ele)
     ele.focus()
     ele.select()
 
@@ -26,7 +28,7 @@ export async function copy2Clipboard(colorCode: string) {
     } catch (err) {
       console.error(`Fallback: Oops, unable to copy`, err)
     } finally {
-      document.body.removeChild(ele)
+      ele.remove()
     }
 
     return
@@ -35,7 +37,7 @@ export async function copy2Clipboard(colorCode: string) {
   try {
     await navigator.clipboard.writeText(colorCode)
     console.log(`Async: copy to clipboard was successful!`)
-  } catch (error) {
-    console.error(`Async: Could not copy text:`, error)
+  } catch (err) {
+    console.error(`Async: Could not copy text:`, err)
   }
 }
