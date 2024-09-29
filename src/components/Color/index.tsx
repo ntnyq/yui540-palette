@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, BgColor, ProductName, ColorCode } from './style'
+import { BgColor, ColorCode, Container, ProductName } from './style'
 
 interface Props {
   color: string

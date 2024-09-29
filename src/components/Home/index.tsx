@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Sns, SnsItem, Logo, Footer, Container, ColorWrapper } from './style'
-import { Color, Preview, Modal } from '@/components'
+import logo from '@/assets/logo.svg'
+import { Color, Modal, Preview } from '@/components'
 import { products } from '@/constants/colors'
 import { snsList } from '@/constants/sns'
-import logo from '@/assets/logo.svg'
+import { ColorWrapper, Container, Footer, Logo, Sns, SnsItem } from './style'
 
 const Home: React.FC = () => {
   const [open, setOpen] = useState(false)

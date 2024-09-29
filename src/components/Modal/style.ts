@@ -1,18 +1,10 @@
 import styled from 'styled-components'
 import { fadeIn, slideRight } from '@/utils/keyframes'
-import {
-  bound,
-  rotate,
-  border,
-  prevButtonShow,
-  nextButtonShow,
-} from './keyframes'
 import { mediaQueries as mq } from '@/utils/mq'
+import { border, bound, nextButtonShow, prevButtonShow, rotate } from './keyframes'
 
 const color1 = '#fbf4f1'
 const color2 = '#5d3523'
-const color3 = '#ccc'
-const color4 = '#c2617e'
 
 export const Bg = styled.div`
   position: fixed;
@@ -260,8 +252,7 @@ export const ColorLine = styled.div`
   }
   /* animation */
   &[data-show='true']:before {
-    animation: ${slideRight} 0.8s cubic-bezier(0.86, -0.02, 0.08, 1.02) 0.8s
-      forwards;
+    animation: ${slideRight} 0.8s cubic-bezier(0.86, -0.02, 0.08, 1.02) 0.8s forwards;
   }
 `
 

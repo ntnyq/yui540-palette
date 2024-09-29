@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { mediaQueries as mq } from '@/utils/mq'
-import { beat } from './keyframes'
 
 export const Container = styled.button`
   appearance: none;

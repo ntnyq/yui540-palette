@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { mediaQueries as mq } from '@/utils/mq'
 import { fadeIn } from '@/utils/keyframes'
+import { mediaQueries as mq } from '@/utils/mq'
 
 export const Container = styled.div`
   padding-bottom: 130px;
