@@ -1,38 +1,40 @@
 {
   "name": "palette",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@10.14.0",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "lint": "eslint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
     "prepare": "husky",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "styled-components": "^6.1.19",
-    "styled-reset": "^4.5.2"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "styled-components": "^6.3.12",
+    "styled-reset": "^5.0.0"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^5.3.1",
-    "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^24.3.0",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.0.0",
-    "eslint": "^9.33.0",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@typescript/native-preview": "7.0.0-dev.20260305.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "husky": "^9.1.7",
-    "nano-staged": "^0.8.0",
-    "prettier": "^3.6.2",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.2"
+    "nano-staged": "^0.9.0",
+    "oxfmt": "^0.42.0",
+    "oxlint": "^1.57.0",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3"
   },
   "nano-staged": {
-    "*.{js,ts,cjs,mjs,tsx,json,md,yml,yaml}": "eslint --fix"
-  }
+    "*.{js,ts,mjs,tsx}": "oxlint --fix",
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  },
+  "packageManager": "pnpm@10.33.0"
 }

@@ -3,7 +3,25 @@ import logo from '@/assets/logo.svg'
 import { Color, Modal, Preview } from '@/components'
 import { products } from '@/constants/colors'
 import { snsList } from '@/constants/sns'
-import { ColorWrapper, Container, Footer, Logo, Sns, SnsItem } from './style'
+import {
+  ColorWrapper,
+  Container,
+  Footer,
+  Logo,
+  Sns,
+  SnsItem,
+} from '@/styles/home'
+
+function goSnsLink(link: string) {
+  if (!link) {
+    return
+  }
+  if (link === 'javascript:;') {
+    return
+  }
+
+  window.open(link, '_blank')
+}
 
 const Home: React.FC = () => {
   const [open, setOpen] = useState(false)
@@ -42,17 +60,6 @@ const Home: React.FC = () => {
       activeProductIdx + 1 === products.length ? 0 : activeProductIdx + 1
 
     setActiveProductIdx(newIdx)
-  }
-
-  const goSnsLink = (link: string) => {
-    if (!link) {
-      return
-    }
-    if (link === 'javascript:;') {
-      return
-    }
-
-    window.open(link, '_blank')
   }
 
   return (

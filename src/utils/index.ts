@@ -25,8 +25,8 @@ export async function copy2Clipboard(colorCode: string) {
       console.log(
         `Fallback: Copying text command was ${hasSuccess ? 'successful' : 'unsuccessful'}`,
       )
-    } catch (err) {
-      console.error(`Fallback: Oops, unable to copy`, err)
+    } catch (error) {
+      console.error(`Fallback: Oops, unable to copy`, error)
     } finally {
       ele.remove()
     }
@@ -37,7 +37,7 @@ export async function copy2Clipboard(colorCode: string) {
   try {
     await navigator.clipboard.writeText(colorCode)
     console.log(`Async: copy to clipboard was successful!`)
-  } catch (err) {
-    console.error(`Async: Could not copy text:`, err)
+  } catch (error) {
+    console.error(`Async: Could not copy text:`, error)
   }
 }

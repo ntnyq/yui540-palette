@@ -1,6 +1,6 @@
 import React from 'react'
-import { Home } from '@/components'
-import { GlobalStyle } from './style'
+import Home from '@/pages/home'
+import { GlobalStyle } from '@/styles/global'
 
 const App: React.FC = () => (
   <React.Fragment>

@@ -1,0 +1,137 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "import",
+    "jsdoc",
+    "node",
+    "promise",
+    "oxc",
+    "typescript",
+    "unicorn",
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "restriction": "warn",
+    "nursery": "warn",
+  },
+  "ignorePatterns": ["**/dist/**", "**/node_modules/**", "**/fixtures/**"],
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "es6": true,
+  },
+  "rules": {
+    "capitalized-comments": "off",
+    "no-console": "off",
+    "sort-keys": "off",
+    "sort-imports": "off",
+    "no-plusplus": "off",
+    "no-ternary": "off",
+    "no-empty-function": "off",
+    "no-inline-comments": "off",
+    "no-param-reassign": "off",
+    "no-script-url": "off",
+    "no-warning-comments": "off",
+    "no-promise-executor-return": "off",
+    "require-await": "off",
+    "import/group-exports": "off",
+    "import/exports-last": "off",
+    "import/no-default-export": "off",
+    "import/no-named-export": "off",
+    "import/no-named-as-default": "off",
+    "import/prefer-default-export": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-type": "off",
+    "oxc/no-async-await": "off",
+    "oxc/no-optional-chaining": "off",
+    "oxc/no-rest-spread-properties": "off",
+    "typescript/no-non-null-assertion": "off",
+    "typescript/explicit-module-boundary-types": "off",
+    "typescript/explicit-function-return-type": "off",
+    "unicorn/filename-case": "off",
+    "unicorn/prefer-global-this": "off",
+    "func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
+    "id-length": [
+      "warn",
+      {
+        "min": 2,
+        "max": 50,
+        "exceptions": ["a", "b", "i", "j", "v", "x", "y", "T", "_", "$"],
+      },
+    ],
+    "max-lines": [
+      "warn",
+      { "max": 1000, "skipComments": true, "skipBlankLines": true },
+    ],
+    "max-statements": ["warn", 30],
+    "max-lines-per-function": [
+      "warn",
+      { "max": 200, "skipComments": true, "skipBlankLines": true },
+    ],
+    "no-duplicate-imports": [
+      "warn",
+      { "allowSeparateTypeImports": true, "includeExports": false },
+    ],
+    "no-magic-numbers": [
+      "warn",
+      {
+        "ignore": [0, 1, -1, 0.1, 3, 10, 1000, 760, 1200],
+        "ignoreArrayIndexes": true,
+        "ignoreDefaultValues": true,
+        "enforceConst": true,
+        "detectObjects": false,
+      },
+    ],
+    "no-use-before-define": [
+      "warn",
+      { "functions": false, "classes": true, "variables": true },
+    ],
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "oxc/no-throw-literal": "off",
+      },
+    },
+    {
+      "files": ["scripts/**/*.ts", "**/node/**/*.ts", "cli.ts"],
+      "rules": {
+        "import/no-nodejs-modules": "off",
+      },
+    },
+    {
+      "files": ["**/*.d.ts"],
+      "rules": {
+        "import/unambiguous": "off",
+        "import/no-nodejs-modules": "off",
+      },
+    },
+    {
+      "files": ["src/*.tsx", "src/**/*.tsx"],
+      "rules": {
+        "import/unambiguous": "off",
+        "import/no-nodejs-modules": "off",
+      },
+    },
+    {
+      "files": ["src/index.ts"],
+      "rules": {
+        "import/no-default-export": "warn",
+      },
+    },
+    {
+      "files": ["*.config.{ts,mjs}"],
+      "rules": {
+        "new-cap": "off",
+        "no-magic-numbers": "off",
+        "import/no-nodejs-modules": "off",
+      },
+    },
+  ],
+}
